@@ -12,7 +12,6 @@ bounce = 0.7
 [sub_resource type="SphereMesh" id="SphereMesh_aglvs"]
 
 [node name="Player" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21048, 0)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

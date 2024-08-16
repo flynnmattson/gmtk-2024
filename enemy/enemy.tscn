@@ -6,8 +6,9 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g8v1n"]
 
-[node name="Node3D" type="CharacterBody3D"]
+[node name="enemy" type="CharacterBody3D"]
 script = ExtResource("1_pisoc")
+speed = 50
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

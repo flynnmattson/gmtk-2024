@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=6 format=3 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="PackedScene" uid="uid://tnq07yasl5c5" path="res://player/player.tscn" id="1_07kb3"]
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
+[ext_resource type="PackedScene" uid="uid://brrgihrapcr22" path="res://enemy/enemy.tscn" id="3_57r5y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gjiij"]
 size = Vector3(10, 0.5, 10)
@@ -32,6 +33,7 @@ depth = 5.0
 polygon = PackedVector2Array(6, -6, 6, 6, -6, 6, -6, -6, 0, -6, 0, -5, -5, -5, -5, 5, 5, 5, 5, -5, 0.00246292, -5.00182, 0, -6)
 
 [node name="Player" parent="." instance=ExtResource("1_07kb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, 0)
@@ -42,3 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 
 projection = 1
 current = true
 size = 10.0
+
+[node name="enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_57r5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+target = NodePath("../Player")
