@@ -9,3 +9,6 @@ func _physics_process(delta):
 	
 	velocity = inVec * speed * delta
 	move_and_slide()
+
+func die():
+	pass #Called by the level when the player hits them hard enough. 
