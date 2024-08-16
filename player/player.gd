@@ -11,4 +11,6 @@ func _physics_process(delta):
 	inVec.x -= Input.get_action_strength("move_left")
 	inVec.y -= Input.get_action_strength("move_up")
 	
-	apply_central_impulse(Vector3(inVec.x, 0, inVec.y) * force * delta)
+	var moveVec = Vector3(inVec.x, 0, inVec.y)
+	
+	apply_central_impulse(moveVec * force * delta)
