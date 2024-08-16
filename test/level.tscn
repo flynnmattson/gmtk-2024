@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd5qeh7uk82bw"]
+
+[ext_resource type="PackedScene" uid="uid://tnq07yasl5c5" path="res://player/player.tscn" id="1_07kb3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_esim3"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gjiij"]
+size = Vector3(5, 0.5, 5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250008, 0)
+shape = SubResource("BoxShape3D_esim3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_gjiij")
+
+[node name="Player" parent="." instance=ExtResource("1_07kb3")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4, 5)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, 0)
+omni_range = 10.0
