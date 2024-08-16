@@ -12,7 +12,6 @@ func _physics_process(delta):
 
 
 func _on_player_collision(body):
-	print("oof")
 	if body.is_in_group("enemy"):
 		if $Player.linear_velocity.length() > 2:
 			body.die()
