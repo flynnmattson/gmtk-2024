@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://434n8v7f3vhf"]
+
+[ext_resource type="Script" path="res://manager/level_manager.gd" id="1_ojg0l"]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_ojg0l")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
