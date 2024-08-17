@@ -8,5 +8,5 @@ script = ExtResource("1_dyk74")
 enemyScene = ExtResource("2_oq3hj")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
 autostart = true

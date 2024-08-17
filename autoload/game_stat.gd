@@ -2,6 +2,7 @@ extends Node
 
 var currency: int = 0
 var kills: int = 0
+var level: int = 1
 
 
 func gain_currency() -> void:
@@ -27,3 +28,4 @@ func reset() -> void:
 	GameEvent.emit_currency_updated()
 	kills = 0
 	GameEvent.emit_kills_updated()
+	level = 1

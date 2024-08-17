@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfdnvv3m0amx5"]
+[gd_scene load_steps=7 format=3 uid="uid://bfdnvv3m0amx5"]
 
 [ext_resource type="Script" path="res://manager/manager.gd" id="1_40anm"]
 [ext_resource type="PackedScene" uid="uid://dd5qeh7uk82bw" path="res://test/level.tscn" id="1_vfm8v"]
 [ext_resource type="PackedScene" uid="uid://ccqknubh72crj" path="res://ui/hud/hud.tscn" id="3_aoydm"]
+[ext_resource type="PackedScene" uid="uid://tnq07yasl5c5" path="res://player/player.tscn" id="3_tx6us"]
 [ext_resource type="PackedScene" uid="uid://bevakg1g0lbb4" path="res://ui/main_menu/main_menu.tscn" id="4_qhu8c"]
+[ext_resource type="PackedScene" uid="uid://dspmga32wr7ft" path="res://ui/upgrade/upgrade_screen.tscn" id="4_qo6mp"]
 
 [node name="Manager" type="Node"]
 script = ExtResource("1_40anm")
 levelScene = ExtResource("1_vfm8v")
+playerScene = ExtResource("3_tx6us")
 
 [node name="HUD" parent="." instance=ExtResource("3_aoydm")]
+visible = false
+
+[node name="UpgradeScreen" parent="." instance=ExtResource("4_qo6mp")]
 visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource("4_qhu8c")]

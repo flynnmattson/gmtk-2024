@@ -3,12 +3,14 @@ extends RigidBody3D
 
 @onready var collision_shape: CollisionShape3D = $Shape
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var scale_node_3d: Node3D = $ScaleNode3D
+
 
 @export var scaleFactor:float
 @export var superThreshold:float
 @export var normalColor:Color = Color("5f7c4f78")
 @export var superColor:Color = Color("a6527578")
-@export var force:int
+@export var force: int
 
 
 var offset = Vector3(0, 0, 0)
@@ -20,6 +22,8 @@ func _ready() -> void:
 	health_component.health_gained.connect(_update_health)
 	health_component.health_lost.connect(_update_health)
 	health_component.died.connect(_on_death)
+	GameEvent.grow.connect(grow)
+	GameEvent.shrink.connect(shrink)
 	
 	if collision_shape.shape is SphereShape3D:
 		offset = Vector3(0, collision_shape.shape.radius / 5, 0)
@@ -46,11 +50,11 @@ func _physics_process(delta):
 
 	if linear_velocity.length() > superThreshold and not isSuper:
 		isSuper = true
-		$Sphere.mesh.material.albedo_color = superColor
+		#$Sphere.mesh.material.albedo_color = superColor
 		
 	elif linear_velocity.length() < superThreshold and isSuper:
 		isSuper = false
-		$Sphere.mesh.material.albedo_color = normalColor
+		#$Sphere.mesh.material.albedo_color = normalColor
 
 
 func _on_body_entered(body: Node) -> void:
@@ -75,7 +79,11 @@ func _on_death() -> void:
 	GameEvent.emit_game_over()
 
 
-func grow():
-	$Shape.scale *= scaleFactor
-	$Sphere.scale *= scaleFactor
-	$Char.scale *= scaleFactor
+func grow() -> void:
+	scale_node_3d.scale *= scaleFactor
+	collision_shape.scale *= scaleFactor
+
+
+func shrink() -> void:
+	scale_node_3d.scale *= -scaleFactor
+	collision_shape.scale *= -scaleFactor

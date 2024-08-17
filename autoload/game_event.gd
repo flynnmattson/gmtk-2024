@@ -7,6 +7,10 @@ signal start_game()
 signal game_over()
 signal currency_updated()
 signal kills_updated()
+signal grow()
+signal shrink()
+signal next_level()
+signal level_ended()
 
 
 func emit_player_health_updated(health_percent: float) -> void:
@@ -31,3 +35,20 @@ func emit_currency_updated() -> void:
 
 func emit_kills_updated() -> void:
 	kills_updated.emit()
+
+
+func emit_grow() -> void:
+	grow.emit()
+
+
+func emit_shrink() -> void:
+	shrink.emit()
+
+
+func emit_next_level() -> void:
+	GameStat.level += 1
+	next_level.emit()
+
+
+func emit_level_ended() -> void:
+	level_ended.emit()
