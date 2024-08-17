@@ -11,7 +11,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fkvs"]
 resource_name = "palette.002"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_emkjy")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -22,7 +21,6 @@ normal_scale = 0.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcgfl"]
 resource_name = "Material"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_twlr5")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -123,7 +121,7 @@ script = ExtResource("1_vqabv")
 camOffset = Vector3(0, 7, 10)
 
 [node name="metal_map_blank" type="Node3D" parent="."]
-transform = Transform3D(4.73, 0, 0, 0, 4.73, 0, 0, 0, 4.73, 0, -0.735941, 0)
+transform = Transform3D(3.34461, 0, 3.34461, 0, 4.73, 0, -3.34461, 0, 3.34461, 0, -0.735941, 0)
 
 [node name="TestMap" type="MeshInstance3D" parent="metal_map_blank"]
 transform = Transform3D(100, 0, 0, 0, 100, 7.54979e-06, 0, -7.54979e-06, 100, 0, 1.95216, 0)
@@ -141,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 max_contacts_reported = 2
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.930826, 0, 0.365462, 0, 1, 0, -0.365462, 0, 0.930826, -4.05229, 6.23748, -18.5091)
+transform = Transform3D(0.930826, 0, 0.365462, 0, 1, 0, -0.365462, 0, 0.930826, 1.8953, 12.6624, 14.9244)
 light_energy = 10.0
 shadow_enabled = true
 omni_range = 40.0
