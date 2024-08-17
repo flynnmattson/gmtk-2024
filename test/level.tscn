@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="PackedScene" uid="uid://dgta5affipch8" path="res://spawner/enemy_spawner.tscn" id="4_2qqjx"]
 [ext_resource type="PackedScene" uid="uid://yl42krro30s1" path="res://enemy/enemy_two.tscn" id="4_od76x"]
-[ext_resource type="PackedScene" uid="uid://dxh12q417sd8a" path="res://Resources/Levels/TestMap.blend" id="5_2nmdd"]
+[ext_resource type="PackedScene" uid="uid://fm6sxmsb5ar3" path="res://Resources/Levels/TestMapTexture.fbx" id="5_emyh7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gjiij"]
 size = Vector3(30, 0.5, 30)
@@ -63,10 +63,11 @@ target = NodePath("../Player")
 
 [node name="TestMap" type="StaticBody3D" parent="."]
 
-[node name="TestMap2" parent="TestMap" instance=ExtResource("5_2nmdd")]
-transform = Transform3D(4.355, 0, 0, 0, 4.355, 0, 0, 0, 4.355, -1.38017, -0.625152, 2.04428)
+[node name="TestMapTexture" parent="TestMap" instance=ExtResource("5_emyh7")]
+transform = Transform3D(4.205, 0, 0, 0, 4.205, 0, 0, 0, 4.205, -3.65236, -0.553838, 3.01093)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 0, 2.38419e-07)
 shape = SubResource("ConvexPolygonShape3D_ednjy")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_collision"]
