@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4uktgw56qkn"]
+
+[ext_resource type="PackedScene" uid="uid://cxshkflyva15x" path="res://Resources/Enemies/SpitSpider2.fbx" id="1_g1wou"]
+
+[node name="SpiderEnemy" type="Node3D"]
+
+[node name="SpitSpider2" parent="." instance=ExtResource("1_g1wou")]
