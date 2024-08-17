@@ -33,10 +33,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="VSplitContainer" type="VSplitContainer" parent="EdgeMarginContainer/MarginContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="EdgeMarginContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="ChargeBar" type="ProgressBar" parent="EdgeMarginContainer/MarginContainer/VSplitContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="EdgeMarginContainer/MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="ChargeBar" type="ProgressBar" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 24)
 layout_mode = 2
@@ -45,7 +48,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bx5ta")
 max_value = 1.0
 value = 0.5
 
-[node name="PlayerHealthBar" type="ProgressBar" parent="EdgeMarginContainer/MarginContainer/VSplitContainer"]
+[node name="PlayerHealthBar" type="ProgressBar" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 48)
 layout_mode = 2
@@ -53,3 +56,28 @@ theme_override_styles/background = SubResource("StyleBoxFlat_bobvt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4w2la")
 max_value = 1.0
 value = 0.5
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="EdgeMarginContainer/MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2/HSplitContainer2"]
+layout_mode = 2
+
+[node name="Kills" type="Label" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2/HSplitContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2/HSplitContainer"]
+layout_mode = 2
+
+[node name="Currency" type="Label" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12 "

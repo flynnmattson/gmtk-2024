@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _start_game() -> void:
+	GameStat.reset()
 	main_menu.visible = false
 	hud.visible = true
 	currLevel = levelScene.instantiate()

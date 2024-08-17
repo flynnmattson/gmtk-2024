@@ -130,6 +130,7 @@ skeleton = NodePath("")
 
 [node name="TestMap " type="StaticBody3D" parent="metal_map_blank"]
 transform = Transform3D(100, 0, 0, 0, 100, 7.54979e-06, 0, -7.54979e-06, 100, 0, 1.95216, 0)
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="metal_map_blank/TestMap "]
 shape = SubResource("ConcavePolygonShape3D_0wyrp")
@@ -139,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 max_contacts_reported = 2
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.930826, 0, 0.365462, 0, 1, 0, -0.365462, 0, 0.930826, 1.8953, 12.6624, 14.9244)
+transform = Transform3D(0.930826, 0, 0.365462, 0, 1, 0, -0.365462, 0, 0.930826, 9.8953, 9.6624, -9.0756)
 light_energy = 10.0
 shadow_enabled = true
 omni_range = 40.0
@@ -156,7 +157,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945266, 0.464514, 6.57285)
 target = NodePath("../Player")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2qqjx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99388, 1.51664, 0.364063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60573, 1.10307, 4.12458)
+target = NodePath("../Player")
+
+[node name="EnemySpawner2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2qqjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69781, 0.827838, -8.3773)
 target = NodePath("../Player")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_collision"]
