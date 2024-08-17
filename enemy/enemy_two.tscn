@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://yl42krro30s1"]
+[gd_scene load_steps=7 format=3 uid="uid://yl42krro30s1"]
 
 [ext_resource type="Script" path="res://enemy/enemy_two.gd" id="1_dc3td"]
+[ext_resource type="PackedScene" uid="uid://dqjva1py6uhqj" path="res://currency/currency.tscn" id="2_h8nh0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffpr5"]
 friction = 0.3
@@ -20,11 +21,14 @@ radius = 0.3
 height = 0.6
 
 [node name="EnemyTwo" type="RigidBody3D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 7
 mass = 0.3
 physics_material_override = SubResource("PhysicsMaterial_ffpr5")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_dc3td")
+currencyScene = ExtResource("2_h8nh0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_dofxx")
