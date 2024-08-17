@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://yl42krro30s1"]
+
+[ext_resource type="Script" path="res://enemy/enemy_two.gd" id="1_dc3td"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffpr5"]
+friction = 0.3
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dofxx"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wpsa"]
+albedo_color = Color(0.711466, 0.330051, 0.282011, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0m4bx"]
+material = SubResource("StandardMaterial3D_7wpsa")
+radius = 0.3
+height = 0.6
+
+[node name="EnemyTwo" type="RigidBody3D" groups=["enemy"]]
+mass = 0.3
+physics_material_override = SubResource("PhysicsMaterial_ffpr5")
+script = ExtResource("1_dc3td")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dofxx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0m4bx")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgta5affipch8"]
+
+[ext_resource type="Script" path="res://spawner/enemy_spawner.gd" id="1_dyk74"]
+[ext_resource type="PackedScene" uid="uid://yl42krro30s1" path="res://enemy/enemy_two.tscn" id="2_oq3hj"]
+
+[node name="EnemySpawner" type="Node3D"]
+script = ExtResource("1_dyk74")
+enemyScene = ExtResource("2_oq3hj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
