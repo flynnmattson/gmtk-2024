@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://csta5yiibndjx"]
+
+[ext_resource type="PackedScene" uid="uid://b67qdtw6jwph6" path="res://Resources/Levels/metal_map/Metal1Baked.gltf" id="1_6aw8m"]
+
+[node name="Map1Metal" type="Node3D"]
+
+[node name="Metal1Baked" parent="." instance=ExtResource("1_6aw8m")]

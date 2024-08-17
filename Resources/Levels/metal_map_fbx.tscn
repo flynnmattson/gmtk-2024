@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nix2bo12g5nf"]
+
+[ext_resource type="PackedScene" uid="uid://n7binool8dvn" path="res://Resources/Levels/metal_map_blank.fbx" id="1_5spcb"]
+
+[node name="MetalMapFbx" type="Node3D"]
+
+[node name="metal_map_blank" parent="." instance=ExtResource("1_5spcb")]
