@@ -6,8 +6,11 @@ extends RigidBody3D
 @onready var scale_node_3d: Node3D = $ScaleNode3D
 
 
-@export var scaleFactor:float
-@export var superThreshold:float
+@export var growFactor: float
+@export var health_gain: int
+@export var shrinkFactor: float
+@export var speedGain: float
+@export var superThreshold: float
 @export var normalColor:Color = Color("5f7c4f78")
 @export var superColor:Color = Color("a6527578")
 @export var force: int
@@ -27,6 +30,10 @@ func _ready() -> void:
 	
 	if collision_shape.shape is SphereShape3D:
 		offset = Vector3(0, collision_shape.shape.radius / 5, 0)
+
+
+func reset() -> void:
+	health_component.heal(health_component.max_health)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,10 +87,15 @@ func _on_death() -> void:
 
 
 func grow() -> void:
-	scale_node_3d.scale *= scaleFactor
-	collision_shape.scale *= scaleFactor
+	scale_node_3d.scale *= growFactor
+	collision_shape.scale *= growFactor
+	health_component.max_health += health_gain
+	mass += 0.05
 
 
 func shrink() -> void:
-	scale_node_3d.scale *= -scaleFactor
-	collision_shape.scale *= -scaleFactor
+	scale_node_3d.scale *= shrinkFactor
+	collision_shape.scale *= shrinkFactor
+	force += speedGain
+	mass -= 0.05
+	physics_material_override.bounce += 0.01
