@@ -26,10 +26,6 @@ physics_material_override = SubResource("PhysicsMaterial_j4mnm")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_lddo0")
-scaleFactor = 1.0
-superThreshold = 10.0
-normalColor = null
-superColor = null
 force = 200
 
 [node name="Shape" type="CollisionShape3D" parent="."]
