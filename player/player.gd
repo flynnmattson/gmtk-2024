@@ -1,6 +1,14 @@
+class_name Player
 extends RigidBody3D
 
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
+
 @export var force:int
+var offset = Vector3(0, 0, 0)
+
+func _ready() -> void:
+	if collision_shape.shape is SphereShape3D:
+		offset = Vector3(0, collision_shape.shape.radius / 5, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -13,4 +21,4 @@ func _physics_process(delta):
 	
 	var moveVec = Vector3(inVec.x, 0, inVec.y)
 	
-	apply_central_impulse(moveVec * force * delta)
+	apply_force(moveVec * force * delta, offset)

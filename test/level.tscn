@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=7 format=3 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="PackedScene" uid="uid://tnq07yasl5c5" path="res://player/player.tscn" id="1_07kb3"]
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
-[ext_resource type="PackedScene" uid="uid://brrgihrapcr22" path="res://enemy/enemy.tscn" id="3_57r5y"]
+[ext_resource type="PackedScene" uid="uid://dgta5affipch8" path="res://spawner/enemy_spawner.tscn" id="4_2qqjx"]
+[ext_resource type="PackedScene" uid="uid://yl42krro30s1" path="res://enemy/enemy_two.tscn" id="4_od76x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gjiij"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(30, 0.5, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cq1ub"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(30, 0.5, 30)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_vqabv")
@@ -30,6 +31,7 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 depth = 5.0
+disabled = true
 polygon = PackedVector2Array(6, -6, 6, 6, -6, 6, -6, -6, 0, -6, 0, -5, -5, -5, -5, 5, 5, 5, 5, -5, 0.00246292, -5.00182, 0, -6)
 
 [node name="Player" parent="." instance=ExtResource("1_07kb3")]
@@ -37,8 +39,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 max_contacts_reported = 2
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, 0)
-omni_range = 15.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 9, 2)
+light_energy = 10.0
+omni_range = 40.0
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 7, 10)
@@ -46,8 +49,12 @@ projection = 1
 current = true
 size = 10.0
 
-[node name="enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_57r5y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+[node name="EnemyTwo" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_od76x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945266, 0.65728, 6.57285)
+target = NodePath("../Player")
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2qqjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99388, 1.51664, 0.364063)
 target = NodePath("../Player")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_collision"]
