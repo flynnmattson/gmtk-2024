@@ -7,6 +7,7 @@ extends RigidBody3D
 var offset = Vector3(0, 0, 0)
 
 func _ready() -> void:
+	body_entered.connect(_on_body_entered)
 	if collision_shape.shape is SphereShape3D:
 		offset = Vector3(0, collision_shape.shape.radius / 5, 0)
 
@@ -22,3 +23,12 @@ func _physics_process(delta):
 	var moveVec = Vector3(inVec.x, 0, inVec.y)
 	
 	apply_force(moveVec * force * delta, offset)
+
+func _on_body_entered(body: Node) -> void:
+	if not body.is_in_group("enemy") or body is not Enemy:
+		return
+	
+	var enemy = body as Enemy
+	var direction = global_position.direction_to(enemy.global_position)
+	direction.y += randf_range(0.5, 1.0)
+	enemy.apply_central_impulse(direction * 4)

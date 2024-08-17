@@ -41,6 +41,7 @@ max_contacts_reported = 2
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 9, 2)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 40.0
 
 [node name="Camera" type="Camera3D" parent="."]
@@ -50,7 +51,7 @@ current = true
 size = 10.0
 
 [node name="EnemyTwo" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_od76x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945266, 0.65728, 6.57285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945266, 0.464514, 6.57285)
 target = NodePath("../Player")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2qqjx")]
