@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccqknubh72crj"]
+
+[ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_ej6pa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60ojb"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx5ta"]
+bg_color = Color(0.51381, 0.195152, 0.197127, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bobvt"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w2la"]
+bg_color = Color(0.497614, 0.64626, 0.500702, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ej6pa")
+
+[node name="EdgeMarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="EdgeMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VSplitContainer" type="VSplitContainer" parent="EdgeMarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ChargeBar" type="ProgressBar" parent="EdgeMarginContainer/MarginContainer/VSplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 24)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_60ojb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bx5ta")
+max_value = 1.0
+value = 0.5
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="EdgeMarginContainer/MarginContainer/VSplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 48)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bobvt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4w2la")
+max_value = 1.0
+value = 0.5

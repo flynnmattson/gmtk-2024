@@ -1,43 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfdnvv3m0amx5"]
+[gd_scene load_steps=5 format=3 uid="uid://bfdnvv3m0amx5"]
 
 [ext_resource type="Script" path="res://manager/manager.gd" id="1_40anm"]
 [ext_resource type="PackedScene" uid="uid://dd5qeh7uk82bw" path="res://test/level.tscn" id="1_vfm8v"]
+[ext_resource type="PackedScene" uid="uid://ccqknubh72crj" path="res://ui/hud/hud.tscn" id="3_aoydm"]
+[ext_resource type="PackedScene" uid="uid://bevakg1g0lbb4" path="res://ui/main_menu/main_menu.tscn" id="4_qhu8c"]
 
-[node name="Manager" type="Node3D"]
+[node name="Manager" type="Node"]
 script = ExtResource("1_40anm")
 levelScene = ExtResource("1_vfm8v")
 
-[node name="Menu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="HUD" parent="." instance=ExtResource("3_aoydm")]
+visible = false
 
-[node name="Start" type="Button" parent="Menu"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -415.0
-offset_top = -462.0
-offset_right = 415.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "yep
-"
-
-[node name="Label" type="Label" parent="Menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "0"
-horizontal_alignment = 1
-
-[connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
+[node name="MainMenu" parent="." instance=ExtResource("4_qhu8c")]

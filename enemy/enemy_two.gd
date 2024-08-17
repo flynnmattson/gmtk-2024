@@ -21,5 +21,16 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var inVec = (target.global_position - global_position).normalized() #
-
 	apply_force(inVec * force * delta, offset)
+
+
+func launch() -> void:
+	Callable(set_destroy).call_deferred()
+	
+
+func set_destroy() -> void:
+	body_entered.connect(_destroy)
+
+
+func _destroy(body: Node) -> void:
+	Callable(queue_free).call_deferred()

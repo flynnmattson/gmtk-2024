@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://tnq07yasl5c5"]
+[gd_scene load_steps=8 format=3 uid="uid://tnq07yasl5c5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_lddo0"]
+[ext_resource type="PackedScene" uid="uid://vkgs3f374via" path="res://component/health/health_component.tscn" id="2_wdhlh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j4mnm"]
 friction = 0.4
 rough = true
-bounce = 0.9
+bounce = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sgw03"]
 
@@ -27,10 +28,11 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_lddo0")
 scaleFactor = 1.0
-superThreshold = 10.0
-normalColor = null
-superColor = null
+superThreshold = 7.0
 force = 200
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_wdhlh")]
+delay_delete = true
 
 [node name="Shape" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_sgw03")
