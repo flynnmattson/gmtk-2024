@@ -21,6 +21,5 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var inVec = (target.global_position - global_position).normalized() #
-	inVec.y = 0
 
 	apply_force(inVec * force * delta, offset)
