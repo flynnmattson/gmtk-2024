@@ -1,10 +1,16 @@
 class_name Player
 extends RigidBody3D
 
-@onready var collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var collision_shape: CollisionShape3D = $Shape
 
+@export var scaleFactor:float
+@export var superThreshold:float
+
+@export var normalColor:Color = Color("5f7c4f78")
+@export var superColor:Color = Color("a6527578")
 @export var force:int
 var offset = Vector3(0, 0, 0)
+var isSuper:bool = false
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -23,6 +29,14 @@ func _physics_process(delta):
 	var moveVec = Vector3(inVec.x, 0, inVec.y)
 	
 	apply_force(moveVec * force * delta, offset)
+	
+	if linear_velocity.length() > superThreshold and not isSuper:
+		isSuper = true
+		$Sphere.mesh.material.albedo_color = superColor
+		
+	elif linear_velocity.length() < superThreshold and isSuper:
+		isSuper = false
+		$Sphere.mesh.material.albedo_color = normalColor
 
 func _on_body_entered(body: Node) -> void:
 	if not body.is_in_group("enemy") or body is not Enemy:
@@ -32,3 +46,8 @@ func _on_body_entered(body: Node) -> void:
 	var direction = global_position.direction_to(enemy.global_position)
 	direction.y += randf_range(0.5, 1.0)
 	enemy.apply_central_impulse(direction * 4)
+	
+func grow():
+	$Shape.scale *= scaleFactor
+	$Sphere.scale *= scaleFactor
+	$Char.scale *= scaleFactor

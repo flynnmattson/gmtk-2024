@@ -17,6 +17,7 @@ func _on_player_collision(body):
 		#if $Player.linear_velocity.length() > 2:
 			#body.die()
 			#currScore += 1
+			#$Player.grow()
 		#else:
 			#death.emit(currScore)
 		#Check the velocity of the player and see if they have just been hit.
