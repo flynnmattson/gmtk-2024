@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://yl42krro30s1"]
+[gd_scene load_steps=8 format=3 uid="uid://yl42krro30s1"]
 
 [ext_resource type="Script" path="res://enemy/enemy_two.gd" id="1_dc3td"]
 [ext_resource type="PackedScene" uid="uid://dqjva1py6uhqj" path="res://currency/currency.tscn" id="2_h8nh0"]
+[ext_resource type="Texture2D" uid="uid://bpj6de4xwivjv" path="res://Resources/Enemies/cube_enemy_skin.png" id="3_mt465"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffpr5"]
 friction = 0.3
@@ -13,7 +14,7 @@ absorbent = true
 radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wpsa"]
-albedo_color = Color(0.711466, 0.330051, 0.282011, 1)
+albedo_texture = ExtResource("3_mt465")
 
 [sub_resource type="SphereMesh" id="SphereMesh_0m4bx"]
 material = SubResource("StandardMaterial3D_7wpsa")
