@@ -22,6 +22,8 @@ height = 0.6
 [node name="EnemyTwo" type="RigidBody3D" groups=["enemy"]]
 mass = 0.3
 physics_material_override = SubResource("PhysicsMaterial_ffpr5")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_dc3td")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
