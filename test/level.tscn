@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=20 format=4 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="Texture2D" uid="uid://cqqgrimfadkf7" path="res://Resources/Levels/MetalGround.png" id="2_emkjy"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dh0gger50vp5" path="res://Resources/Levels/metal_map/Metal1Baked_rusty_golden_metal_01_diffuse.png.png" id="3_twlr5"]
 [ext_resource type="PackedScene" uid="uid://dgta5affipch8" path="res://spawner/enemy_spawner.tscn" id="4_2qqjx"]
 [ext_resource type="Texture2D" uid="uid://flyw10d7khlt" path="res://Resources/Levels/metal_map/Metal1Baked_rusty_golden_metal_01_glossiness.png" id="4_fg6gh"]
-[ext_resource type="PackedScene" uid="uid://yl42krro30s1" path="res://enemy/enemy_two.tscn" id="4_od76x"]
 [ext_resource type="PackedScene" uid="uid://c1etr4lgt0tn6" path="res://Resources/Levels/cube_tower/CubeTower.gltf" id="8_yj5oe"]
 [ext_resource type="PackedScene" uid="uid://dqehsvg54tk7a" path="res://Resources/Levels/LightDecal.glb" id="9_upahp"]
 
@@ -209,4 +208,3 @@ light_energy = 16.0
 light_size = 0.757
 omni_range = 8.886
 omni_attenuation = 2.01
-
