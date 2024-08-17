@@ -41,3 +41,7 @@ func spawn_currency() -> void:
 		var currency = currencyScene.instantiate() as Currency
 		get_parent().add_child(currency)
 		currency.global_position = global_position
+		var x = randf_range(-1.0, 1.0)
+		var z = randf_range(-1.0, 1.0)
+		var y = randf_range(0.5, 1.0)
+		currency.apply_central_impulse(Vector3(x, y, z) * 4)

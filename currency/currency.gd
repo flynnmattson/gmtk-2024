@@ -1,12 +1,14 @@
 extends RigidBody3D
 class_name Currency
 
+@onready var area_3d: Area3D = $Area3D
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	area_3d.body_entered.connect(_on_body_entered)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node3D) -> void:
+	if body is Player:
+		GameStat.gain_currency()
+		Callable(queue_free).call_deferred()
