@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=21 format=4 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="Texture2D" uid="uid://cqqgrimfadkf7" path="res://Resources/Levels/MetalGround.png" id="2_emkjy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dh0gger50vp5" path="res://Resources/Levels/metal_map/Metal1Baked_rusty_golden_metal_01_diffuse.png.png" id="3_twlr5"]
 [ext_resource type="PackedScene" uid="uid://dgta5affipch8" path="res://spawner/enemy_spawner.tscn" id="4_2qqjx"]
 [ext_resource type="Texture2D" uid="uid://flyw10d7khlt" path="res://Resources/Levels/metal_map/Metal1Baked_rusty_golden_metal_01_glossiness.png" id="4_fg6gh"]
+[ext_resource type="PackedScene" uid="uid://c4uktgw56qkn" path="res://enemy/spider_enemy.tscn" id="7_ite0r"]
 [ext_resource type="PackedScene" uid="uid://c1etr4lgt0tn6" path="res://Resources/Levels/cube_tower/CubeTower.gltf" id="8_yj5oe"]
 [ext_resource type="PackedScene" uid="uid://dqehsvg54tk7a" path="res://Resources/Levels/LightDecal.glb" id="9_upahp"]
 
@@ -186,6 +187,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60573, 1.10307, 4.12458)
 
 [node name="EnemySpawner2" parent="." instance=ExtResource("4_2qqjx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69781, 0.827838, -8.3773)
+
+[node name="EnemySpawner3" parent="." instance=ExtResource("4_2qqjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.43751, 0.567606, -7.71931)
+enemyScene = ExtResource("7_ite0r")
 
 [node name="CubeTower" parent="." instance=ExtResource("8_yj5oe")]
 transform = Transform3D(-9.26869, 0, -9.76717, 0, 13.465, 0, 9.76717, 0, -9.26869, -0.39, -207.25, -0.57)

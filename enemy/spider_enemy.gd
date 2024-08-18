@@ -1,29 +1,30 @@
-class_name Enemy
 extends RigidBody3D
 
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
-@export var force: int = 100
+@export var force: int
 @export var target: RigidBody3D
 @export var currencyScene: PackedScene
 
-var offset = Vector3.ZERO
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if collision_shape.shape is SphereShape3D:
-		offset = Vector3(0, collision_shape.shape.radius / 5, 0)
+	animation_player.play("goodrun", -1, 2.0)
 
 
 func _physics_process(delta: float) -> void:
 	if target != null:
 		var inVec = (target.global_position - global_position).normalized()
-		apply_force(inVec * force * delta, offset)
+		apply_central_force(inVec * force * delta)
 
 
 func launch(direction: Vector3) -> void:
-	apply_central_impulse(direction)
+	animation_player.stop()
+	animation_player.play("jump", -1, 2.0)
+	axis_lock_angular_x = false
+	axis_lock_angular_y = false
+	axis_lock_angular_z = false
+	apply_impulse(direction, Vector3(0, 0.1, 0))
 	Callable(set_destroy).call_deferred()
 
 

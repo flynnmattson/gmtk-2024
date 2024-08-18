@@ -9,7 +9,7 @@ extends RigidBody3D
 @export var growFactor: float
 @export var health_gain: int
 @export var shrinkFactor: float
-@export var speedGain: float
+@export var speedGain: int
 @export var superThreshold: float
 @export var normalColor:Color = Color("5f7c4f78")
 @export var superColor:Color = Color("a6527578")
@@ -44,9 +44,9 @@ func _physics_process(delta):
 	inVec.y += Input.get_action_strength("move_down")
 	inVec.x -= Input.get_action_strength("move_left")
 	inVec.y -= Input.get_action_strength("move_up")
-	
+
 	var moveVec = Vector3(inVec.x, 0, inVec.y)
-	
+
 	apply_force(moveVec * force * delta, offset)
 	
 	var magnitude = linear_velocity.length()
@@ -65,17 +65,17 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body: Node) -> void:
-	if not body.is_in_group("enemy") or body is not Enemy:
+	if not body.is_in_group("enemy"):
 		return
 	
 	if not isSuper:
 		health_component.damage(1)
 	else:
-		var enemy = body as Enemy
+		var enemy = body as RigidBody3D
 		var direction = global_position.direction_to(enemy.global_position)
-		direction.y += randf_range(0.5, 1.0)
-		enemy.apply_central_impulse(direction * 4)
-		enemy.launch()
+		direction.y += randf_range(0.75, 1.25)
+		direction *= 4
+		enemy.launch(direction)
 
 
 func _update_health() -> void:
@@ -97,5 +97,5 @@ func shrink() -> void:
 	scale_node_3d.scale *= shrinkFactor
 	collision_shape.scale *= shrinkFactor
 	force += speedGain
-	mass -= 0.05
+	mass = clampf(mass - 0.01, 0.01, INF)
 	physics_material_override.bounce += 0.01
