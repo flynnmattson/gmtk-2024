@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=28 format=4 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="Texture2D" uid="uid://cqqgrimfadkf7" path="res://Resources/Levels/MetalGround.png" id="2_emkjy"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dr6wnd8atqreg" path="res://Resources/sound_fx/HitEnemy.wav" id="11_8s5b6"]
 [ext_resource type="AudioStream" uid="uid://b7hfinlcrfxk" path="res://Resources/sound_fx/EnemyExplode.wav" id="12_ylw0y"]
 [ext_resource type="PackedScene" uid="uid://dnoj7re66o27f" path="res://test/speed_sparks.tscn" id="13_b8ecc"]
+[ext_resource type="AudioStream" uid="uid://dgc1w0hbslafy" path="res://Resources/music/BG Music Test.mp3" id="14_0j4yc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fkvs"]
 resource_name = "palette.002"
@@ -153,6 +154,9 @@ fog_aerial_perspective = 0.474
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbabe"]
 size = Vector3(37.7377, 4.95221, 0.594238)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xh6g6"]
+size = Vector3(391.094, 1, 341.861)
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_vqabv")
 camOffset = Vector3(0, 7, 10)
@@ -263,3 +267,15 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExtraCollision/StaticBody3D4"]
 transform = Transform3D(0.713458, 0, -0.700698, 0, 1, 0, 0.700698, 0, 0.713458, 13.1415, 1.31322, -13.3076)
 shape = SubResource("BoxShape3D_wbabe")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_0j4yc")
+volume_db = -4.062
+autoplay = true
+bus = &"Music"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4973, -67.2354, 14.2978)
+shape = SubResource("BoxShape3D_xh6g6")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bevakg1g0lbb4"]
+[gd_scene load_steps=8 format=3 uid="uid://bevakg1g0lbb4"]
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_8uop4"]
 [ext_resource type="VideoStream" path="res://ui/main_menu/MenuBG.ogv" id="2_13dqv"]
 [ext_resource type="FontFile" uid="uid://qhamhtv5dtkj" path="res://Resources/font/aAbsoluteEmpire.otf" id="2_780i5"]
 [ext_resource type="Texture2D" uid="uid://c0aoqd5hspio" path="res://ui/main_menu/TitleText.png" id="3_qpa8n"]
-[ext_resource type="Texture2D" uid="uid://csyb6hdtfxtgr" path="res://ui/main_menu/AboutCard.png" id="5_r6deh"]
+[ext_resource type="Texture2D" uid="uid://bvfei08ysk41b" path="res://ui/main_menu/AboutPage.png" id="5_8dagg"]
+[ext_resource type="AudioStream" uid="uid://b7jfi0kaeh3qp" path="res://Resources/music/Menu Music Test.mp3" id="6_248gn"]
 
 [sub_resource type="Theme" id="Theme_x0b8o"]
 
@@ -94,5 +95,11 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_r6deh")
+texture = ExtResource("5_8dagg")
 expand_mode = 2
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_248gn")
+volume_db = -0.98
+autoplay = true
+bus = &"Music"

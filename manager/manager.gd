@@ -51,7 +51,8 @@ func _reset() -> void:
 	currLevel.queue_free()
 	hud.visible = false
 	upgrade_screen.visible = false
-	main_menu.visible = true
+	main_menu.enable()
+	
 
 
 func _level_ended() -> void:
