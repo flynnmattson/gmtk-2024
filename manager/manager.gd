@@ -33,6 +33,7 @@ func _start_game() -> void:
 
 
 func _game_over() -> void:
+	await get_tree().create_timer(2).timeout #Wait two seconds
 	currLevel.queue_free()
 	hud.visible = false
 	upgrade_screen.visible = false

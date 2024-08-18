@@ -85,6 +85,12 @@ func _update_health() -> void:
 
 func _on_death() -> void:
 	GameEvent.emit_game_over()
+	$DeathChunks.emitting = true #The death chunks should replace the sphere.
+	$ScaleNode3D/SphereObject.visible = false
+	$ScaleNode3D/CharacterRiderV4.visible = false
+	speedGain = 0 #Prevent the player from controlling the dead character
+	collision_mask = 1 #Prevent additional collision
+	collision_layer = 0
 
 
 func grow() -> void:
