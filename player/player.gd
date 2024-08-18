@@ -6,8 +6,11 @@ extends RigidBody3D
 @onready var scale_node_3d: Node3D = $ScaleNode3D
 
 
-@export var scaleFactor:float
-@export var superThreshold:float
+@export var growFactor: float
+@export var health_gain: int
+@export var shrinkFactor: float
+@export var speedGain: int
+@export var superThreshold: float
 @export var normalColor:Color = Color("5f7c4f78")
 @export var superColor:Color = Color("a6527578")
 @export var force: int
@@ -29,6 +32,10 @@ func _ready() -> void:
 		offset = Vector3(0, collision_shape.shape.radius / 5, 0)
 
 
+func reset() -> void:
+	health_component.heal(health_component.max_health)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var inVec = Vector2(0, 0) #Input vector. The direction (x, z) the player wants to go.
@@ -37,9 +44,9 @@ func _physics_process(delta):
 	inVec.y += Input.get_action_strength("move_down")
 	inVec.x -= Input.get_action_strength("move_left")
 	inVec.y -= Input.get_action_strength("move_up")
-	
+
 	var moveVec = Vector3(inVec.x, 0, inVec.y)
-	
+
 	apply_force(moveVec * force * delta, offset)
 	
 	var magnitude = linear_velocity.length()
@@ -58,18 +65,18 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body: Node) -> void:
-	if not body.is_in_group("enemy") or body is not Enemy:
+	if not body.is_in_group("enemy"):
 		return
 	
 	if not isSuper:
 		health_component.damage(1)
 		$sparks.emitting = true
 	else:
-		var enemy = body as Enemy
+		var enemy = body as RigidBody3D
 		var direction = global_position.direction_to(enemy.global_position)
-		direction.y += randf_range(0.5, 1.0)
-		enemy.apply_central_impulse(direction * 4)
-		enemy.launch()
+		direction.y += randf_range(0.75, 1.25)
+		direction *= 4
+		enemy.launch(direction)
 
 
 func _update_health() -> void:
@@ -81,10 +88,15 @@ func _on_death() -> void:
 
 
 func grow() -> void:
-	scale_node_3d.scale *= scaleFactor
-	collision_shape.scale *= scaleFactor
+	scale_node_3d.scale *= growFactor
+	collision_shape.scale *= growFactor
+	health_component.max_health += health_gain
+	mass += 0.05
 
 
 func shrink() -> void:
-	scale_node_3d.scale *= -scaleFactor
-	collision_shape.scale *= -scaleFactor
+	scale_node_3d.scale *= shrinkFactor
+	collision_shape.scale *= shrinkFactor
+	force += speedGain
+	mass = clampf(mass - 0.01, 0.01, INF)
+	physics_material_override.bounce += 0.01

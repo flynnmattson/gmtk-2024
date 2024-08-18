@@ -47,6 +47,7 @@ func _level_ended() -> void:
 func _next_level() -> void:
 	get_tree().paused = false
 	var player = currLevel.remove_player()
+	player.reset()
 	currLevel.queue_free()
 	currLevel = levelScene.instantiate() as Level
 	currLevel.position = Vector3(0, 0, 0)

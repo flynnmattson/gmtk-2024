@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqjva1py6uhqj"]
+[gd_scene load_steps=7 format=3 uid="uid://dqjva1py6uhqj"]
 
 [ext_resource type="Script" path="res://currency/currency.gd" id="1_gt5rg"]
+[ext_resource type="Texture2D" uid="uid://hqdvwenrs340" path="res://Resources/currency/capsule_texture.png" id="2_wukn3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ueh6"]
 bounce = 0.8
@@ -9,7 +10,11 @@ bounce = 0.8
 radius = 0.1
 height = 0.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ehir"]
+albedo_texture = ExtResource("2_wukn3")
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_i5bli"]
+material = SubResource("StandardMaterial3D_5ehir")
 radius = 0.1
 height = 0.5
 
