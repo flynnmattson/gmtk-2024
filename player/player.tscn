@@ -59,7 +59,7 @@ transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
 [node name="CharacterRiderV4" parent="ScaleNode3D" instance=ExtResource("4_qxace")]
 transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, -0.371169, 0)
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="DeathChunks" type="CPUParticles3D" parent="."]
 emitting = false
 one_shot = true
 explosiveness = 1.0
