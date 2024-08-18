@@ -9,4 +9,3 @@ enemyScene = ExtResource("2_oq3hj")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
-autostart = true
