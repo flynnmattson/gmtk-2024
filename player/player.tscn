@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://tnq07yasl5c5"]
+[gd_scene load_steps=12 format=3 uid="uid://tnq07yasl5c5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_lddo0"]
 [ext_resource type="PackedScene" uid="uid://vkgs3f374via" path="res://component/health/health_component.tscn" id="2_wdhlh"]
 [ext_resource type="PackedScene" uid="uid://dscqiory22nh8" path="res://Resources/player/SphereObject.glb" id="3_q5kkm"]
 [ext_resource type="PackedScene" uid="uid://dl7q6kn0gm5yv" path="res://Resources/player/CharacterRiderV4.glb" id="4_qxace"]
 [ext_resource type="ArrayMesh" uid="uid://d2xfj77ruyl5o" path="res://Resources/player/sphere_eighth.tres" id="5_kfosa"]
+[ext_resource type="PackedScene" uid="uid://bwdyki4x1esvj" path="res://test/sparks.tscn" id="6_8jrf1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j4mnm"]
 friction = 0.4
@@ -80,3 +81,5 @@ angle_min = -180.0
 angle_max = 180.0
 scale_amount_min = 100.0
 scale_amount_max = 100.0
+
+[node name="sparks" parent="." instance=ExtResource("6_8jrf1")]
