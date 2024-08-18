@@ -66,14 +66,15 @@ func _physics_process(delta):
 	else:
 		if not speed_sound.playing:
 			speed_sound.play()
-		speed_sound.pitch_scale = clamp(magnitude * 0.1, 0.0, 1)
-		GameEvent.emit_charge_updated(clamp(magnitude / superThreshold, 0.0, 1.0))
+		var chargePercent = clamp(magnitude / superThreshold, 0.0, 1.0)
+		speed_sound.pitch_scale = chargePercent
+		GameEvent.emit_charge_updated(chargePercent)
 
-	if linear_velocity.length() > superThreshold and not isSuper:
+	if magnitude > superThreshold and not isSuper:
 		isSuper = true
 		#$Sphere.mesh.material.albedo_color = superColor
 		
-	elif linear_velocity.length() < superThreshold and isSuper:
+	elif magnitude < superThreshold and isSuper:
 		isSuper = false
 		#$Sphere.mesh.material.albedo_color = normalColor
 
@@ -96,7 +97,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _update_health() -> void:
-	GameEvent.emit_player_health_updated(health_component.get_health_percent())
+	GameEvent.emit_player_health_updated(health_component)
 
 
 func _on_death() -> void:

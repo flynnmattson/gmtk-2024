@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var charge_bar: ProgressBar = %ChargeBar
 @onready var currency: Label = %Currency
 @onready var timer: Label = %Timer
+@onready var health_label: Label = %HealthLabel
 
 
 @export var level_manager: LevelManager
@@ -17,6 +18,7 @@ func _ready() -> void:
 	GameEvent.player_health_updated.connect(_on_player_health_updated)
 	GameEvent.charge_updated.connect(_on_charge_updated)
 	GameEvent.currency_updated.connect(_on_currency_updated)
+	health_label.text = "10/10"
 
 
 func _process(delta: float) -> void:
@@ -33,8 +35,9 @@ func _format_seconds_to_string(seconds: float):
 	return str(minutes) + ":" + ("%02d" % floor(remaining_seconds))
 
 
-func _on_player_health_updated(health_percent: float) -> void:
-	player_health_bar.value = health_percent
+func _on_player_health_updated(health_component: HealthComponent) -> void:
+	player_health_bar.value = health_component.get_health_percent()
+	health_label.text = str(health_component.current_health) + "/" + str(health_component.max_health)
 
 
 func _on_charge_updated(charge_percent: float) -> void:

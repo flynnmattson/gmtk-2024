@@ -35,11 +35,14 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_lddo0")
 growFactor = 1.1
-health_gain = 1
+health_gain = 2
 shrinkFactor = 0.9
 speedGain = 10
-superThreshold = 7.0
+superThreshold = 9.0
+normalColor = null
+superColor = null
 force = 200
+pitch_floor = null
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_wdhlh")]
 delay_delete = true

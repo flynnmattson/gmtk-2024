@@ -1,7 +1,7 @@
 extends Node
 
 
-signal player_health_updated(health_percent: float)
+signal player_health_updated(health_component: HealthComponent)
 signal charge_updated(charge_percent: float)
 signal start_game()
 signal game_over()
@@ -15,8 +15,8 @@ signal enemy_hit()
 signal reset()
 
 
-func emit_player_health_updated(health_percent: float) -> void:
-	player_health_updated.emit(health_percent)
+func emit_player_health_updated(health_component: HealthComponent) -> void:
+	player_health_updated.emit(health_component)
 
 
 func emit_charge_updated(charge_percent: float) -> void:

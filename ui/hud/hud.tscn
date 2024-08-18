@@ -67,6 +67,24 @@ theme_override_styles/background = SubResource("StyleBoxFlat_bobvt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4w2la")
 max_value = 1.0
 value = 0.5
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer/PlayerHealthBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.5
+offset_right = 20.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VSplitContainer2" type="VSplitContainer" parent="EdgeMarginContainer/MarginContainer/HSplitContainer"]
 layout_mode = 2
