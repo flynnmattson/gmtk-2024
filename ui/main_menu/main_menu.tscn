@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bevakg1g0lbb4"]
+[gd_scene load_steps=7 format=3 uid="uid://bevakg1g0lbb4"]
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_8uop4"]
+[ext_resource type="VideoStream" path="res://ui/main_menu/MenuBG.ogv" id="2_13dqv"]
 [ext_resource type="FontFile" uid="uid://qhamhtv5dtkj" path="res://Resources/font/aAbsoluteEmpire.otf" id="2_780i5"]
+[ext_resource type="Texture2D" uid="uid://c0aoqd5hspio" path="res://ui/main_menu/TitleText.png" id="3_qpa8n"]
+[ext_resource type="Texture2D" uid="uid://csyb6hdtfxtgr" path="res://ui/main_menu/AboutCard.png" id="5_r6deh"]
 
 [sub_resource type="Theme" id="Theme_x0b8o"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_8uop4")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 13.0
+offset_top = -3.0
+offset_right = 1933.0
+offset_bottom = 1085.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("2_13dqv")
+autoplay = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
@@ -36,6 +49,24 @@ alignment = 1
 [node name="Menu" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
+[node name="About" type="Button" parent="MarginContainer/HBoxContainer/Menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -354.0
+offset_top = -145.5
+offset_right = -208.0
+offset_bottom = -71.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_780i5")
+theme_override_font_sizes/font_size = 36
+text = "About"
+
 [node name="Start" type="Button" parent="MarginContainer/HBoxContainer/Menu"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -44,14 +75,34 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -398.0
-offset_top = -239.5
-offset_right = -252.0
-offset_bottom = -165.5
+offset_left = -354.0
+offset_top = -246.5
+offset_right = -208.0
+offset_bottom = -172.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_780i5")
+theme_override_font_sizes/font_size = 36
 text = "Start
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/Menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -354.0
+offset_top = -42.5
+offset_right = -208.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_780i5")
+theme_override_font_sizes/font_size = 36
+text = "Quit
 "
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Menu"]
@@ -65,3 +116,14 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "0"
 horizontal_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(196, 109.5)
+scale = Vector2(0.250463, 0.250463)
+texture = ExtResource("3_qpa8n")
+
+[node name="InfoWindow" type="Sprite2D" parent="MarginContainer"]
+visible = false
+position = Vector2(579, 316.5)
+scale = Vector2(0.553646, 0.553646)
+texture = ExtResource("5_r6deh")
