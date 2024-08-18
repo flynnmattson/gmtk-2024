@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwdyki4x1esvj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjntu"]
+transparency = 1
+emission_enabled = true
+emission = Color(0.988235, 0.988235, 0, 1)
+emission_energy_multiplier = 50.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1udc7"]
+material = SubResource("StandardMaterial3D_hjntu")
+size = Vector2(0.05, 0.05)
+orientation = 2
+
+[node name="sparks" type="CPUParticles3D"]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("PlaneMesh_1udc7")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0

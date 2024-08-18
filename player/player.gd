@@ -63,6 +63,7 @@ func _on_body_entered(body: Node) -> void:
 	
 	if not isSuper:
 		health_component.damage(1)
+		$sparks.emitting = true
 	else:
 		var enemy = body as Enemy
 		var direction = global_position.direction_to(enemy.global_position)
