@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://qhamhtv5dtkj" path="res://Resources/font/aAbsoluteEmpire.otf" id="2_780i5"]
 [ext_resource type="Texture2D" uid="uid://c0aoqd5hspio" path="res://ui/main_menu/TitleText.png" id="3_qpa8n"]
 [ext_resource type="Texture2D" uid="uid://bvfei08ysk41b" path="res://ui/main_menu/AboutPage.png" id="5_8dagg"]
-[ext_resource type="AudioStream" uid="uid://b7jfi0kaeh3qp" path="res://Resources/music/Menu Music Test.mp3" id="6_248gn"]
+[ext_resource type="AudioStream" uid="uid://cx844exi1hhvf" path="res://Resources/music/Menu loop.wav" id="6_xlph5"]
 
 [sub_resource type="Theme" id="Theme_x0b8o"]
 
@@ -99,7 +99,7 @@ texture = ExtResource("5_8dagg")
 expand_mode = 2
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_248gn")
+stream = ExtResource("6_xlph5")
 volume_db = -0.98
 autoplay = true
 bus = &"Music"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fplh07siyrbo"]
+[gd_scene load_steps=4 format=3 uid="uid://fplh07siyrbo"]
 
 [ext_resource type="VideoStream" path="res://Resources/tutorial/TutorialScreen.ogv" id="1_0nno4"]
 [ext_resource type="Script" path="res://ui/tutorial/tutorial_screen.gd" id="1_d2yhw"]
+[ext_resource type="AudioStream" uid="uid://8lbvph4o2xjw" path="res://Resources/music/Transition.wav" id="3_re7vh"]
 
 [node name="TutorialScreen" type="CanvasLayer"]
 script = ExtResource("1_d2yhw")
@@ -20,3 +21,7 @@ layout_mode = 2
 stream = ExtResource("1_0nno4")
 expand = true
 loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_re7vh")
+volume_db = -3.25
