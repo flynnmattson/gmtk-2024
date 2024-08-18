@@ -12,6 +12,7 @@ signal shrink()
 signal next_level()
 signal level_ended()
 signal enemy_hit()
+signal reset()
 
 
 func emit_player_health_updated(health_percent: float) -> void:
@@ -57,3 +58,7 @@ func emit_next_level() -> void:
 
 func emit_level_ended() -> void:
 	level_ended.emit()
+
+
+func emit_reset() -> void:
+	reset.emit()
