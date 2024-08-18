@@ -7,17 +7,17 @@ class_name MainMenu
 @onready var video_stream_player: VideoStreamPlayer = $AspectRatioContainer/VideoStreamPlayer
 @onready var about_info: TextureRect = %AboutInfo
 @onready var about_container: MarginContainer = %AboutContainer
+@onready var menu_music: AudioStreamPlayer = $MenuMusic
 
 
 func _ready() -> void:
-	start.pressed.connect(GameEvent.emit_start_game)
+	start.pressed.connect(_start_game)
 	quit.pressed.connect(_quit)
 	about.pressed.connect(_about)
 	about_info.gui_input.connect(_on_about_info_input)
 	video_stream_player.expand = true
 	#if event is InputEventMouseButton:
 		#$MarginContainer/InfoWindow.visible = false
-
 
 func _quit() -> void:
 	get_tree().quit()
@@ -30,3 +30,13 @@ func _about() -> void:
 func _on_about_info_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
 		about_container.visible = false
+
+func _start_game() -> void:
+	menu_music.stop()
+	GameEvent.emit_start_game()
+	
+func enable() -> void:
+	visible = true
+	menu_music.play()
+		
+	
