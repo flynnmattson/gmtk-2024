@@ -11,119 +11,88 @@
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_8uop4")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_left = 13.0
-offset_top = -3.0
-offset_right = 1933.0
-offset_bottom = 1085.0
-scale = Vector2(0.6, 0.6)
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+layout_mode = 2
 stream = ExtResource("2_13dqv")
 autoplay = true
 loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -577.0
-offset_top = -324.5
-offset_right = 577.0
-offset_bottom = 324.5
-grow_horizontal = 2
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 377.0
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 theme = SubResource("Theme_x0b8o")
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 90
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Menu" type="Control" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_qpa8n")
+expand_mode = 2
 
-[node name="About" type="Button" parent="MarginContainer/HBoxContainer/Menu"]
+[node name="Start" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -354.0
-offset_top = -145.5
-offset_right = -208.0
-offset_bottom = -71.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_780i5")
-theme_override_font_sizes/font_size = 36
-text = "About"
-
-[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/Menu"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -354.0
-offset_top = -246.5
-offset_right = -208.0
-offset_bottom = -172.5
-grow_horizontal = 2
-grow_vertical = 0
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_780i5")
 theme_override_font_sizes/font_size = 36
 text = "Start
 "
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/Menu"]
+[node name="About" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -354.0
-offset_top = -42.5
-offset_right = -208.0
-offset_bottom = 31.5
-grow_horizontal = 2
-grow_vertical = 0
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_780i5")
+theme_override_font_sizes/font_size = 36
+text = "About"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_780i5")
 theme_override_font_sizes/font_size = 36
 text = "Quit
 "
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "0"
-horizontal_alignment = 1
+[node name="Menu" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 
-[node name="Title" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
-position = Vector2(196, 109.5)
-scale = Vector2(0.250463, 0.250463)
-texture = ExtResource("3_qpa8n")
-
-[node name="InfoWindow" type="Sprite2D" parent="MarginContainer"]
+[node name="AboutContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 visible = false
-position = Vector2(579, 316.5)
-scale = Vector2(0.553646, 0.553646)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AboutInfo" type="TextureRect" parent="AboutContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
 texture = ExtResource("5_r6deh")
+expand_mode = 2
