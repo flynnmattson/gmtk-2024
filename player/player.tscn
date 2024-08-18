@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_lddo0"]
 [ext_resource type="PackedScene" uid="uid://vkgs3f374via" path="res://component/health/health_component.tscn" id="2_wdhlh"]
 [ext_resource type="PackedScene" uid="uid://dscqiory22nh8" path="res://Resources/player/SphereObject.glb" id="3_q5kkm"]
-[ext_resource type="PackedScene" uid="uid://dl7q6kn0gm5yv" path="res://Resources/player/CharacterRiderV4.glb" id="4_qxace"]
+[ext_resource type="PackedScene" uid="uid://bjyen4d5u4qay" path="res://player/character_rider/character_rider.tscn" id="4_qbctd"]
 [ext_resource type="ArrayMesh" uid="uid://d2xfj77ruyl5o" path="res://Resources/player/sphere_eighth.tres" id="5_kfosa"]
 [ext_resource type="PackedScene" uid="uid://bwdyki4x1esvj" path="res://test/sparks.tscn" id="6_8jrf1"]
 
@@ -59,8 +59,9 @@ mesh = SubResource("CapsuleMesh_5x6i3")
 [node name="SphereObject" parent="ScaleNode3D" instance=ExtResource("3_q5kkm")]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
 
-[node name="CharacterRiderV4" parent="ScaleNode3D" instance=ExtResource("4_qxace")]
-transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, -0.371169, 0)
+[node name="CharacterRider" parent="ScaleNode3D" instance=ExtResource("4_qbctd")]
+unique_name_in_owner = true
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, -0.371, 0)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 emitting = false
