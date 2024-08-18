@@ -1,4 +1,5 @@
 extends Node3D
+class_name EnemySpawner
 
 @onready var timer: Timer = $Timer
 
@@ -16,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_timeout() -> void:
-	var enemy = enemyScene.instantiate() as Enemy
+	var enemy = enemyScene.instantiate()
 	get_parent().add_child(enemy)
 	enemy.global_position = global_position
 	enemy.target = target

@@ -12,6 +12,13 @@ class_name Level
 
 var player: Player
 var currScore = 0
+var spawners: Array[EnemySpawner] = []
+
+
+func _ready() -> void:
+	for node in get_children():
+		if node is EnemySpawner:
+			spawners.append(node)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,8 +32,8 @@ func set_player(p: Player) -> void:
 	player = p
 	add_child(player)
 	player.global_position = start_point
-	enemy_spawner.target = player
-	enemy_spawner_2.target = player
+	for spawner: EnemySpawner in spawners:
+		spawner.target = player
 
 
 func remove_player() -> Player:

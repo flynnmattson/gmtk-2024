@@ -35,7 +35,7 @@ script = ExtResource("1_lddo0")
 growFactor = 1.1
 health_gain = 1
 shrinkFactor = 0.9
-speedGain = 20.0
+speedGain = 10
 superThreshold = 7.0
 force = 200
 
