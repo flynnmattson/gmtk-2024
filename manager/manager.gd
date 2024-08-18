@@ -5,12 +5,14 @@ extends Node
 @onready var upgrade_screen: UpgradeScreen = $UpgradeScreen
 @onready var pause_screen: PauseScreen = $PauseScreen
 @onready var end_screen: EndScreen = $EndScreen
+@onready var tutorial_screen: TutorialScreen = $TutorialScreen
 
 @export var levelScene: PackedScene
 @export var playerScene: PackedScene
 
 var currLevel: Level
 var highScore: int
+var hasPlayed: bool = false
 
 
 func _ready() -> void:
@@ -28,11 +30,21 @@ func _process(delta: float) -> void:
 		if not pause_screen.visible:
 			pause_screen.visible = true
 			get_tree().paused = true
+	
+	if Input.is_action_just_pressed("left_click") and tutorial_screen.visible:
+		tutorial_screen.visible = false
+		GameEvent.emit_start_game()
 
 
 func _start_game() -> void:
-	GameStat.reset()
 	main_menu.visible = false
+
+	if not hasPlayed:
+		hasPlayed = true
+		tutorial_screen.enable()
+		return
+	
+	GameStat.reset()
 	hud.visible = true
 	var player = playerScene.instantiate() as Player
 	currLevel = levelScene.instantiate() as Level
