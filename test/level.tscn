@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=26 format=4 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="Texture2D" uid="uid://cqqgrimfadkf7" path="res://Resources/Levels/MetalGround.png" id="2_emkjy"]
@@ -150,6 +150,9 @@ fog_aerial_perspective = 0.474
 
 [sub_resource type="Compositor" id="Compositor_hkfvj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wbabe"]
+size = Vector3(37.7377, 4.95221, 0.594238)
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_vqabv")
 camOffset = Vector3(0, 7, 10)
@@ -228,3 +231,35 @@ bus = &"Sound FX"
 streams = Array[AudioStream]([ExtResource("12_ylw0y")])
 
 [node name="SpeedSparks" parent="." instance=ExtResource("13_b8ecc")]
+
+[node name="ExtraCollision" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ExtraCollision"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExtraCollision/StaticBody3D"]
+transform = Transform3D(0.712198, 0, -0.701979, 0, 1, 0, 0.701979, 0, 0.712198, 13.2238, 1.31322, -13.2953)
+shape = SubResource("BoxShape3D_wbabe")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="ExtraCollision"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExtraCollision/StaticBody3D2"]
+transform = Transform3D(0.712198, 0, -0.701979, 0, 1, 0, 0.701979, 0, 0.712198, -13.1184, 1.31322, 13.4304)
+shape = SubResource("BoxShape3D_wbabe")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="ExtraCollision"]
+transform = Transform3D(0.0120949, 0, 0.999927, 0, 1, 0, -0.999927, 0, 0.0120949, 0, 0, 0)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExtraCollision/StaticBody3D3"]
+transform = Transform3D(0.713458, 0, -0.700698, 0, 1, 0, 0.700698, 0, 0.713458, -13.0564, 1.31322, 13.3675)
+shape = SubResource("BoxShape3D_wbabe")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="ExtraCollision"]
+transform = Transform3D(0.0120949, 0, 0.999927, 0, 1, 0, -0.999927, 0, 0.0120949, 0, 0, 0)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExtraCollision/StaticBody3D4"]
+transform = Transform3D(0.713458, 0, -0.700698, 0, 1, 0, 0.700698, 0, 0.713458, 13.1415, 1.31322, -13.3076)
+shape = SubResource("BoxShape3D_wbabe")
