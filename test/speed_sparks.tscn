@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnoj7re66o27f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjntu"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.270063, 0.627133, 0.967391, 1)
+emission_energy_multiplier = 50.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1udc7"]
+material = SubResource("StandardMaterial3D_hjntu")
+size = Vector2(0.05, 0.05)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_pg4eo"]
+colors = PackedColorArray(0.857332, 0.331975, 0.367658, 1, 0.119507, 0.523816, 0.879467, 1)
+
+[node name="SpeedSparks" type="CPUParticles3D"]
+lifetime = 0.1
+explosiveness = 1.0
+mesh = SubResource("PlaneMesh_1udc7")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_amount_min = 1.5
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_pg4eo")
