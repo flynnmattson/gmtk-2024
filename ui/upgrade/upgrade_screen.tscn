@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dspmga32wr7ft"]
+[gd_scene load_steps=3 format=3 uid="uid://dspmga32wr7ft"]
 
 [ext_resource type="Script" path="res://ui/upgrade/upgrade_screen.gd" id="1_autrs"]
+[ext_resource type="Texture2D" uid="uid://bp2u7q3gf1u5j" path="res://Resources/currency/MaterialIcon.png" id="2_6e05s"]
 
 [node name="UpgradeScreen" type="CanvasLayer"]
 process_mode = 3
@@ -25,62 +26,104 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ShrinkContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ShrinkButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkContainer"]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Shrink"
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkContainer/MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Decrease size
 Increase Speed"
 
-[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="GrowContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_6e05s")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ShrinkCost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ShrinkButton/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "2"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowContainer"]
+[node name="GrowButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Grow
 "
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowContainer/MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Increase size
 Increase health"
 
-[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_6e05s")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="GrowCost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GrowButton/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "2"
 
 [node name="NextLevelButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

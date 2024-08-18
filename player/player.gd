@@ -4,6 +4,7 @@ extends RigidBody3D
 @onready var collision_shape: CollisionShape3D = $Shape
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var scale_node_3d: Node3D = $ScaleNode3D
+@onready var character_rider: CharacterRider = %CharacterRider
 
 
 @export var growFactor: float
@@ -47,6 +48,10 @@ func _physics_process(delta):
 
 	var moveVec = Vector3(inVec.x, 0, inVec.y)
 
+	if moveVec != Vector3.ZERO:
+		character_rider.run()
+	else:
+		character_rider.rest()
 	apply_force(moveVec * force * delta, offset)
 	
 	var magnitude = linear_velocity.length()

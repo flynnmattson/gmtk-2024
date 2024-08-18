@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccqknubh72crj"]
+[gd_scene load_steps=7 format=3 uid="uid://ccqknubh72crj"]
 
 [ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_ej6pa"]
+[ext_resource type="Texture2D" uid="uid://bp2u7q3gf1u5j" path="res://Resources/currency/MaterialIcon.png" id="2_qyhbx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60ojb"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx5ta"]
-bg_color = Color(0.51381, 0.195152, 0.197127, 1)
+bg_color = Color(0.792293, 0.64344, 0.351357, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bobvt"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)
@@ -86,6 +87,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2/HSplitContainer"]
 layout_mode = 2
+texture = ExtResource("2_qyhbx")
+expand_mode = 3
 
 [node name="Currency" type="Label" parent="EdgeMarginContainer/MarginContainer/HSplitContainer/VSplitContainer2/HSplitContainer"]
 unique_name_in_owner = true
