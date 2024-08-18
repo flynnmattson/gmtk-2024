@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c4uktgw56qkn" path="res://enemy/spider_enemy.tscn" id="7_ite0r"]
 [ext_resource type="PackedScene" uid="uid://c1etr4lgt0tn6" path="res://Resources/Levels/cube_tower/CubeTower.gltf" id="8_yj5oe"]
 [ext_resource type="PackedScene" uid="uid://dqehsvg54tk7a" path="res://Resources/Levels/LightDecal.glb" id="9_upahp"]
-[ext_resource type="AudioStream" uid="uid://xmfjvl6uss4b" path="res://Resources/sound_fx/PlayerRoll.wav" id="10_cjjld"]
+[ext_resource type="PackedScene" uid="uid://cpqms17t6iagj" path="res://component/audio/random_audio_stream_player_component.tscn" id="10_qyvnw"]
 [ext_resource type="AudioStream" uid="uid://dr6wnd8atqreg" path="res://Resources/sound_fx/HitEnemy.wav" id="11_8s5b6"]
+[ext_resource type="AudioStream" uid="uid://b7hfinlcrfxk" path="res://Resources/sound_fx/EnemyExplode.wav" id="12_ylw0y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fkvs"]
 resource_name = "palette.002"
@@ -148,11 +149,6 @@ fog_aerial_perspective = 0.474
 
 [sub_resource type="Compositor" id="Compositor_hkfvj"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_nawe2"]
-stream_count = 3
-stream_0 = ExtResource("10_cjjld")
-stream_1 = ExtResource("11_8s5b6")
-
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_vqabv")
 camOffset = Vector3(0, 7, 10)
@@ -221,5 +217,11 @@ light_size = 0.757
 omni_range = 8.886
 omni_attenuation = 2.01
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamPlaylist_nawe2")
+[node name="HitAudio" parent="." instance=ExtResource("10_qyvnw")]
+volume_db = -20.0
+streams = Array[AudioStream]([ExtResource("11_8s5b6")])
+
+[node name="ExplodeAudio" parent="." instance=ExtResource("10_qyvnw")]
+volume_db = -20.0
+bus = &"Sound FX"
+streams = Array[AudioStream]([ExtResource("12_ylw0y")])

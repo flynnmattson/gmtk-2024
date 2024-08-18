@@ -1,10 +1,12 @@
 class_name Player
 extends RigidBody3D
 
+
 @onready var collision_shape: CollisionShape3D = $Shape
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var scale_node_3d: Node3D = $ScaleNode3D
 @onready var character_rider: CharacterRider = %CharacterRider
+@onready var speed_sound: AudioStreamPlayer = $SpeedSound
 
 
 @export var growFactor: float
@@ -15,6 +17,7 @@ extends RigidBody3D
 @export var normalColor:Color = Color("5f7c4f78")
 @export var superColor:Color = Color("a6527578")
 @export var force: int
+@export var pitch_floor: float
 
 
 var offset = Vector3(0, 0, 0)
@@ -57,7 +60,12 @@ func _physics_process(delta):
 	var magnitude = linear_velocity.length()
 	if magnitude == 0.0:
 		GameEvent.emit_charge_updated(0.0)
+		if speed_sound.playing:
+			speed_sound.stop()
 	else:
+		if not speed_sound.playing:
+			speed_sound.play()
+		speed_sound.pitch_scale = clamp(magnitude * 0.1, 0.0, 1)
 		GameEvent.emit_charge_updated(clamp(magnitude / superThreshold, 0.0, 1.0))
 
 	if linear_velocity.length() > superThreshold and not isSuper:
@@ -70,6 +78,8 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body: Node) -> void:
+	GameEvent.emit_enemy_hit()
+
 	if not body.is_in_group("enemy"):
 		return
 	

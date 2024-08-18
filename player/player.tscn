@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://tnq07yasl5c5"]
+[gd_scene load_steps=13 format=3 uid="uid://tnq07yasl5c5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_lddo0"]
 [ext_resource type="PackedScene" uid="uid://vkgs3f374via" path="res://component/health/health_component.tscn" id="2_wdhlh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjyen4d5u4qay" path="res://player/character_rider/character_rider.tscn" id="4_qbctd"]
 [ext_resource type="ArrayMesh" uid="uid://d2xfj77ruyl5o" path="res://Resources/player/sphere_eighth.tres" id="5_kfosa"]
 [ext_resource type="PackedScene" uid="uid://bwdyki4x1esvj" path="res://test/sparks.tscn" id="6_8jrf1"]
+[ext_resource type="AudioStream" uid="uid://dr64v7fjbgj3d" path="res://Resources/sound_fx/ChargedUP.wav" id="7_bt55b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j4mnm"]
 friction = 0.4
@@ -87,3 +88,8 @@ scale_amount_max = 100.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
+
+[node name="SpeedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bt55b")
+volume_db = -15.0
+bus = &"Sound FX"
