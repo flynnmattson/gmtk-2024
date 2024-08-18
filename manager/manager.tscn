@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfdnvv3m0amx5"]
+[gd_scene load_steps=10 format=3 uid="uid://bfdnvv3m0amx5"]
 
 [ext_resource type="Script" path="res://manager/manager.gd" id="1_40anm"]
 [ext_resource type="PackedScene" uid="uid://dd5qeh7uk82bw" path="res://test/level.tscn" id="1_vfm8v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dspmga32wr7ft" path="res://ui/upgrade/upgrade_screen.tscn" id="4_qo6mp"]
 [ext_resource type="PackedScene" uid="uid://ccs8bafnm4gtc" path="res://ui/pause_menu/pause_screen.tscn" id="7_rfh1m"]
 [ext_resource type="PackedScene" uid="uid://ccqyjjdr0loep" path="res://ui/end_screen/end_screen.tscn" id="8_i4nml"]
+[ext_resource type="PackedScene" uid="uid://fplh07siyrbo" path="res://ui/tutorial/tutorial_screen.tscn" id="9_ku7a2"]
 
 [node name="Manager" type="Node"]
 script = ExtResource("1_40anm")
@@ -26,4 +27,7 @@ visible = false
 visible = false
 
 [node name="EndScreen" parent="." instance=ExtResource("8_i4nml")]
+visible = false
+
+[node name="TutorialScreen" parent="." instance=ExtResource("9_ku7a2")]
 visible = false
