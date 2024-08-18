@@ -33,8 +33,10 @@ func emit_game_over() -> void:
 func emit_currency_updated() -> void:
 	currency_updated.emit()
 
+
 func emit_enemy_hit() -> void:
 	enemy_hit.emit()
+
 
 func emit_kills_updated() -> void:
 	kills_updated.emit()
