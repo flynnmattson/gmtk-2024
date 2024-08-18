@@ -6,6 +6,7 @@ class_name Level
 @onready var enemy_spawner_2: Node3D = $EnemySpawner2
 @onready var hit_audio: RandomAudioStreamPlayerComponent = $HitAudio
 @onready var explode_audio: RandomAudioStreamPlayerComponent = $ExplodeAudio
+@onready var speed_sparks: CPUParticles3D = $SpeedSparks
 
 
 @export var camOffset = Vector3(0, 3.5, 5)
@@ -23,6 +24,17 @@ func _ready() -> void:
 	for node in get_children():
 		if node is EnemySpawner:
 			spawners.append(node)
+
+
+func _process(delta: float) -> void:
+	if player != null:
+		var pos = player.global_position
+		pos.y = 0
+		speed_sparks.global_position = pos
+		if player.isSuper and not speed_sparks.emitting:
+			speed_sparks.emitting = true
+		elif not player.isSuper and speed_sparks.emitting:
+			speed_sparks.emitting = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

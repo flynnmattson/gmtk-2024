@@ -7,6 +7,7 @@ extends RigidBody3D
 @onready var scale_node_3d: Node3D = $ScaleNode3D
 @onready var character_rider: CharacterRider = %CharacterRider
 @onready var speed_sound: AudioStreamPlayer = $SpeedSound
+@onready var hit_sparks: CPUParticles3D = $HitSparks
 
 
 @export var growFactor: float
@@ -85,7 +86,7 @@ func _on_body_entered(body: Node) -> void:
 	
 	if not isSuper:
 		health_component.damage(1)
-		$sparks.emitting = true
+		hit_sparks.emitting = true
 	else:
 		var enemy = body as RigidBody3D
 		var direction = global_position.direction_to(enemy.global_position)

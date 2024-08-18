@@ -6,6 +6,7 @@ extends RigidBody3D
 @export var force: int
 @export var target: RigidBody3D
 @export var currencyScene: PackedScene
+@export var explosionScene: PackedScene
 
 
 func _ready() -> void:
@@ -35,7 +36,15 @@ func set_destroy() -> void:
 func _destroy(body: Node) -> void:
 	GameStat.gain_kill()
 	spawn_currency()
+	spawn_explosion()
 	Callable(queue_free).call_deferred()
+
+
+func spawn_explosion() -> void:
+	var explosion = explosionScene.instantiate()
+	get_parent().add_child(explosion)
+	explosion.global_position = global_position
+	explosion.emit()
 
 
 func spawn_currency() -> void:

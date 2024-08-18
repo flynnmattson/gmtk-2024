@@ -84,7 +84,7 @@ angle_max = 180.0
 scale_amount_min = 100.0
 scale_amount_max = 100.0
 
-[node name="sparks" parent="." instance=ExtResource("6_8jrf1")]
+[node name="HitSparks" parent="." instance=ExtResource("6_8jrf1")]
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true

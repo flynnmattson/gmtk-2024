@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b14mcehykswda"]
+
+[ext_resource type="ArrayMesh" uid="uid://ylual3x2jyyf" path="res://Resources/effects/explosion.obj" id="1_e0hiy"]
+[ext_resource type="Script" path="res://effect/smoke_explosion.gd" id="2_pg0e0"]
+
+[node name="SmokeExplosion" type="CPUParticles3D"]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+mesh = ExtResource("1_e0hiy")
+particle_flag_rotate_y = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angular_velocity_min = -50.0
+angular_velocity_max = 25.0
+angle_min = -145.0
+angle_max = 145.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+script = ExtResource("2_pg0e0")
+
+[node name="Timer" type="Timer" parent="."]

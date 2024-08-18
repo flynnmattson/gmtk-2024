@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=25 format=4 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="Texture2D" uid="uid://cqqgrimfadkf7" path="res://Resources/Levels/MetalGround.png" id="2_emkjy"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cpqms17t6iagj" path="res://component/audio/random_audio_stream_player_component.tscn" id="10_qyvnw"]
 [ext_resource type="AudioStream" uid="uid://dr6wnd8atqreg" path="res://Resources/sound_fx/HitEnemy.wav" id="11_8s5b6"]
 [ext_resource type="AudioStream" uid="uid://b7hfinlcrfxk" path="res://Resources/sound_fx/EnemyExplode.wav" id="12_ylw0y"]
+[ext_resource type="PackedScene" uid="uid://dnoj7re66o27f" path="res://test/speed_sparks.tscn" id="13_b8ecc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fkvs"]
 resource_name = "palette.002"
@@ -149,7 +150,7 @@ fog_aerial_perspective = 0.474
 
 [sub_resource type="Compositor" id="Compositor_hkfvj"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Level" type="Node3D"]
 script = ExtResource("1_vqabv")
 camOffset = Vector3(0, 7, 10)
 
@@ -225,3 +226,5 @@ streams = Array[AudioStream]([ExtResource("11_8s5b6")])
 volume_db = -20.0
 bus = &"Sound FX"
 streams = Array[AudioStream]([ExtResource("12_ylw0y")])
+
+[node name="SpeedSparks" parent="." instance=ExtResource("13_b8ecc")]
