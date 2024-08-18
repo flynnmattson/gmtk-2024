@@ -4,6 +4,7 @@ class_name Level
 @onready var level_manager: LevelManager = $LevelManager
 @onready var enemy_spawner: Node3D = $EnemySpawner
 @onready var enemy_spawner_2: Node3D = $EnemySpawner2
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 @export var camOffset = Vector3(0, 3.5, 5)
@@ -16,6 +17,7 @@ var spawners: Array[EnemySpawner] = []
 
 
 func _ready() -> void:
+	GameEvent.enemy_hit.connect(on_enemy_hit)
 	for node in get_children():
 		if node is EnemySpawner:
 			spawners.append(node)
@@ -39,3 +41,7 @@ func set_player(p: Player) -> void:
 func remove_player() -> Player:
 	remove_child(player)
 	return player
+	
+func on_enemy_hit() -> void:
+	audio_stream_player.stream.streams
+	

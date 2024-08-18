@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dd5qeh7uk82bw"]
+[gd_scene load_steps=24 format=4 uid="uid://dd5qeh7uk82bw"]
 
 [ext_resource type="Script" path="res://test/level.gd" id="1_vqabv"]
 [ext_resource type="Texture2D" uid="uid://cqqgrimfadkf7" path="res://Resources/Levels/MetalGround.png" id="2_emkjy"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c4uktgw56qkn" path="res://enemy/spider_enemy.tscn" id="7_ite0r"]
 [ext_resource type="PackedScene" uid="uid://c1etr4lgt0tn6" path="res://Resources/Levels/cube_tower/CubeTower.gltf" id="8_yj5oe"]
 [ext_resource type="PackedScene" uid="uid://dqehsvg54tk7a" path="res://Resources/Levels/LightDecal.glb" id="9_upahp"]
+[ext_resource type="AudioStream" uid="uid://xmfjvl6uss4b" path="res://Resources/sound_fx/PlayerRoll.wav" id="10_cjjld"]
+[ext_resource type="AudioStream" uid="uid://dr6wnd8atqreg" path="res://Resources/sound_fx/HitEnemy.wav" id="11_8s5b6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fkvs"]
 resource_name = "palette.002"
@@ -146,6 +148,11 @@ fog_aerial_perspective = 0.474
 
 [sub_resource type="Compositor" id="Compositor_hkfvj"]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_nawe2"]
+stream_count = 3
+stream_0 = ExtResource("10_cjjld")
+stream_1 = ExtResource("11_8s5b6")
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_vqabv")
 camOffset = Vector3(0, 7, 10)
@@ -213,3 +220,6 @@ light_energy = 16.0
 light_size = 0.757
 omni_range = 8.886
 omni_attenuation = 2.01
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_nawe2")
